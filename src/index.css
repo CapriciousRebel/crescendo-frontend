@@ -28,7 +28,11 @@ code {
   width: 100%;
 }
 
+.w-7rem {
+  width: 7rem;
+}
+
 .upload-card {
   width: 50rem;
-  height: 30rem;
+  height: 23rem;
 }

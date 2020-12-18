@@ -8,14 +8,7 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
 import { uploadFile, getFiles } from "../Apis/FileUpload";
 
-const useStyles = makeStyles((theme) => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-}));
-
 const Welcome = () => {
-  const classes = useStyles();
   const [selectedFiles, setSelectedFiles] = useState(undefined);
   const [currentFile, setCurrentFile] = useState(undefined);
   const [progress, setProgress] = useState(0);
@@ -79,7 +72,7 @@ const Welcome = () => {
             color="default"
             disabled={!selectedFiles}
             onClick={upload}
-            className={classes.button}
+            className="w-7rem"
             startIcon={<CloudUploadIcon />}
           >
             Upload
