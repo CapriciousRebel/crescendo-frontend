@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Container, Spinner, Row, Col } from "react-bootstrap";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
 import { Card } from "@material-ui/core";
 
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
@@ -13,6 +13,7 @@ const Welcome = () => {
   const [currentFile, setCurrentFile] = useState(undefined);
   const [progress, setProgress] = useState(0);
   const [message, setMessage] = useState("");
+  const history = useHistory();
 
   const selectFile = (event) => {
     setSelectedFiles(event.target.files);
@@ -20,17 +21,21 @@ const Welcome = () => {
 
   const upload = () => {
     let currentFile = selectedFiles[0];
-
     setProgress(0);
     setCurrentFile(currentFile);
 
     uploadFile(currentFile, (event) => {
       setProgress(Math.round((100 * event.loaded) / event.total));
-    }).catch(() => {
-      setProgress(0);
-      setMessage("Could not upload the file!");
-      setCurrentFile(undefined);
-    });
+    })
+      .then((response) => {
+        setMessage(response.message);
+        history.push("templates");
+      })
+      .catch(() => {
+        setProgress(0);
+        setMessage("Could not upload the file!");
+        setCurrentFile(undefined);
+      });
 
     setSelectedFiles(undefined);
   };
@@ -40,7 +45,6 @@ const Welcome = () => {
     // setFileInfos(response.data);
     //});
   }, []);
-
   return (
     <>
       <Container fluid className=" mx-0 w-100">
