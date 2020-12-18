@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  width: 100%;
+  text-align: center;
+}
+
+.mt-6 {
+  margin-top: 3rem;
+}
+.mt-10 {
+  margin-top: 10rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.upload-card {
+  width: 50rem;
+  height: 30rem;
+}
