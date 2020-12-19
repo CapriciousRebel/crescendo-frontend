@@ -9,7 +9,10 @@ import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 const Stems = () => {
   const [stems, setStems] = useState([]);
   const startStream = () => {
-    getFiles(localStorage.getItem("client_id")).then((response) => {
+    getFiles(
+      localStorage.getItem("client_id"),
+      localStorage.getItem("output_folder")
+    ).then((response) => {
       setStems(response.data);
     });
   };

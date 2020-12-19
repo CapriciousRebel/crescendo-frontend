@@ -13,13 +13,13 @@ code {
 }
 
 * {
-  width: 100%;
   text-align: center;
 }
 
 .mt-6 {
   margin-top: 3rem;
 }
+
 .mt-10 {
   margin-top: 10rem;
 }
@@ -27,12 +27,21 @@ code {
 .w-100 {
   width: 100%;
 }
+
+.width-50 {
+  width: 30% !important;
+}
+
 .h-100 {
   height: 100%;
 }
 
 .w-7rem {
   width: 7rem;
+}
+
+.w-20rem {
+  width: 20rem;
 }
 
 .upload-card {
@@ -45,9 +54,15 @@ code {
   height: 20rem;
 }
 
+.template-card {
+  max-width: 345px;
+  max-height: 72rem;
+}
+
 .decoration-none {
   text-decoration: none;
 }
+
 .decoration-none:hover {
   text-decoration: none;
 }

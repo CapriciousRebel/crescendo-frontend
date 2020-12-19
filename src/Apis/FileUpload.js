@@ -12,6 +12,8 @@ export const uploadFile = (file, onUploadProgress) => {
   });
 };
 
-export const getFiles = (client_id) => {
-  return axios.get("/files/client_id=" + client_id);
+export const getFiles = (client_id, output_folder) => {
+  return axios.get(
+    "/files/?client_id=" + client_id + "&output_folder=" + output_folder
+  );
 };

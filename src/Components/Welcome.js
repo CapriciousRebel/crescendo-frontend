@@ -29,6 +29,7 @@ const Welcome = () => {
       .then((response) => {
         setMessage(response.data.message);
         localStorage.setItem("client_id", response.data.client_id);
+        localStorage.setItem("output_folder", response.data.output_folder);
         history.push("stems");
       })
       .catch(() => {
@@ -39,12 +40,6 @@ const Welcome = () => {
 
     setSelectedFiles(undefined);
   };
-
-  useEffect(() => {
-    //getFiles().then((response) => {
-    // setFileInfos(response.data);
-    //});
-  }, []);
   return (
     <>
       <Container fluid className=" mx-0 w-100">
