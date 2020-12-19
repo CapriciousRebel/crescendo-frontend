@@ -42,5 +42,12 @@ code {
 
 .stem-card {
   width: 23rem;
-  height: 25rem;
+  height: 20rem;
+}
+
+.decoration-none {
+  text-decoration: none;
+}
+.decoration-none:hover {
+  text-decoration: none;
 }

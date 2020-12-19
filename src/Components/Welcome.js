@@ -29,7 +29,7 @@ const Welcome = () => {
       .then((response) => {
         setMessage(response.data.message);
         localStorage.setItem("client_id", response.data.client_id);
-        history.push("templates");
+        history.push("stems");
       })
       .catch(() => {
         setProgress(0);
