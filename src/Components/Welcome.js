@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Container, Spinner, Row, Col } from "react-bootstrap";
-import Button from "@material-ui/core/Button";
-import { Card } from "@material-ui/core";
+import { Card, Button } from "@material-ui/core";
 
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
@@ -28,7 +27,8 @@ const Welcome = () => {
       setProgress(Math.round((100 * event.loaded) / event.total));
     })
       .then((response) => {
-        setMessage(response.message);
+        setMessage(response.data.message);
+        localStorage.setItem("client_id", response.data.client_id);
         history.push("templates");
       })
       .catch(() => {
