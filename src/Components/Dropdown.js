@@ -4,7 +4,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import { chooseTemplate } from "../Apis/Templates.js";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -26,7 +25,6 @@ export default function ControlledOpenSelect(props) {
   const handleChange = (event) => {
     setTemplate(event.target.value);
     props.parentCallback(type, event.target.value);
-    //chooseTemplate(type, event.target.value);
   };
 
   const handleClose = () => {
@@ -35,7 +33,6 @@ export default function ControlledOpenSelect(props) {
 
   const handleOpen = () => {
     setOpen(true);
-    console.log(type);
   };
 
   return (

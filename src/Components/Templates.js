@@ -23,12 +23,14 @@ const Templates = () => {
     particles: "",
   });
   const handleSubmit = () => {
+    finalData.client_id = localStorage.getItem("client_id");
+    finalData.output_folder = localStorage.getItem("output_folder");
+    console.log(finalData);
     chooseTemplate(finalData);
   };
   const templateSetter = (type, template) => {
     let newFinalData = finalData;
     newFinalData[type] = template;
-    console.log(newFinalData);
     setFinalData(newFinalData);
   };
   const classes = useStyles();
