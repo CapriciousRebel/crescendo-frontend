@@ -40,7 +40,7 @@ const Templates = () => {
       <Row className="mx-auto py-auto">
         <h1 className="mx-auto">Choose a template!</h1>
       </Row>
-      <hr class="mt-2 mb-3" />
+      <hr className="mt-2 mb-3" />
       <Row className="mt-0 mx-0">
         <Col>
           <Row className="mx-0">
@@ -51,7 +51,7 @@ const Templates = () => {
                   title="sample video 1"
                   className="embed-responsive-item"
                   src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </div>
               <h5 className="mt-3">Sample Video</h5>
