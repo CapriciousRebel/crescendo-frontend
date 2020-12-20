@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Container, Spinner, Row, Col } from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
 import { Card, Button } from "@material-ui/core";
 
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
-import { uploadFile, getFiles } from "../Apis/FileUpload";
+import { uploadFile } from "../Apis/FileUpload";
 
 const Welcome = () => {
   const [selectedFiles, setSelectedFiles] = useState(undefined);

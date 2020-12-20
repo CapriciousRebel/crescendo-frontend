@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, Link } from "react-router-dom";
-import { Container, Spinner, Row, Col } from "react-bootstrap";
-import { Card, Button } from "@material-ui/core";
-import { uploadFile, getFiles } from "../Apis/FileUpload";
+import { Link } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
+import { Card } from "@material-ui/core";
+import { getFiles } from "../Apis/FileUpload";
 import ReactPlayer from "react-player";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 const Stems = () => {
   const [stems, setStems] = useState([]);
@@ -34,8 +33,11 @@ const Stems = () => {
           </Col>
         </Row>
         <Row>
-          {stems.map((stem) => (
-            <Card className="stem-card mt-5 mx-auto d-flex flex-column align-items-center justify-content-around">
+          {stems.map((stem, index) => (
+            <Card
+              className="stem-card mt-5 mx-auto d-flex flex-column align-items-center justify-content-around"
+              key={index}
+            >
               <h5>{stem.name}</h5>
               <ReactPlayer
                 url={stem.url}
