@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Container, Spinner } from "react-bootstrap";
 import { Card, Button } from "@material-ui/core";
-
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
 import { uploadFile } from "../Apis/FileUpload";

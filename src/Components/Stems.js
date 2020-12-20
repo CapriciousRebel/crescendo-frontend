@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { Card } from "@material-ui/core";
-import { getFiles } from "../Apis/FileUpload";
 import ReactPlayer from "react-player";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+
+import { getFiles } from "../Apis/FileUpload";
 
 const Stems = () => {
   const [stems, setStems] = useState([]);
+
   const startStream = () => {
     getFiles(
       localStorage.getItem("client_id"),
@@ -15,9 +18,11 @@ const Stems = () => {
       setStems(response.data);
     });
   };
+
   useEffect(() => {
     startStream();
   }, []);
+
   return (
     <>
       <Col>
@@ -28,7 +33,10 @@ const Stems = () => {
           </Col>
           <Col xl={2} className="mt-5  pt-2">
             <Link to="/templates" className="decoration-none">
-              <h4>Choose a template</h4>
+              <Row>
+                <h4>Choose a template</h4>
+                <ArrowForwardIcon className="pt-1" />
+              </Row>
             </Link>
           </Col>
         </Row>

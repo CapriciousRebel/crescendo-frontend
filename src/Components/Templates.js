@@ -7,6 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+
 import ControlledOpenSelect from "./Dropdown";
 import { chooseTemplate } from "../Apis/Templates.js";
 
@@ -17,23 +18,26 @@ const useStyles = makeStyles({
 });
 
 const Templates = () => {
+  const classes = useStyles();
+
   const [finalData, setFinalData] = useState({
     scale: "",
     water: "",
     particles: "",
   });
+
   const handleSubmit = () => {
     finalData.client_id = localStorage.getItem("client_id");
     finalData.output_folder = localStorage.getItem("output_folder");
     console.log(finalData);
     chooseTemplate(finalData);
   };
-  const templateSetter = (type, template) => {
+
+  const handleChangeCallBack = (type, template) => {
     let newFinalData = finalData;
     newFinalData[type] = template;
     setFinalData(newFinalData);
   };
-  const classes = useStyles();
 
   return (
     <Container fluid className="m-0 px-0 pb-0 pt-2">
@@ -74,7 +78,7 @@ const Templates = () => {
                     <CardActions>
                       <ControlledOpenSelect
                         type="scale"
-                        parentCallback={templateSetter}
+                        changeCallback={handleChangeCallBack}
                       />
                     </CardActions>
                   </Card>
@@ -96,7 +100,7 @@ const Templates = () => {
                     <CardActions>
                       <ControlledOpenSelect
                         type="water"
-                        parentCallback={templateSetter}
+                        changeCallback={handleChangeCallBack}
                       />
                     </CardActions>
                   </Card>
@@ -117,7 +121,7 @@ const Templates = () => {
                     </CardActionArea>
                     <ControlledOpenSelect
                       type="particles"
-                      parentCallback={templateSetter}
+                      changeCallback={handleChangeCallBack}
                     />
                   </Card>
                 </Col>

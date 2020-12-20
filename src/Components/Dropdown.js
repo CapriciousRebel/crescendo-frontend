@@ -19,12 +19,12 @@ const useStyles = makeStyles((theme) => ({
 export default function ControlledOpenSelect(props) {
   const type = props.type;
   const classes = useStyles();
-  const [template, setTemplate] = React.useState("");
+  const [stem, setStem] = React.useState("");
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
-    setTemplate(event.target.value);
-    props.parentCallback(type, event.target.value);
+    setStem(event.target.value);
+    props.changeCallback(type, event.target.value);
   };
 
   const handleClose = () => {
@@ -39,7 +39,7 @@ export default function ControlledOpenSelect(props) {
     <div>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">
-          Choose a template
+          Choose a stem
         </InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
@@ -47,7 +47,7 @@ export default function ControlledOpenSelect(props) {
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={template}
+          value={stem}
           onChange={handleChange}
         >
           <MenuItem value="bass">Bass</MenuItem>
