@@ -33,9 +33,9 @@ const Templates = () => {
     chooseTemplate(finalData);
   };
 
-  const handleChangeCallBack = (type, template) => {
+  const handleChangeCallBack = (type, stem) => {
     let newFinalData = finalData;
-    newFinalData[type] = template;
+    newFinalData[type] = stem;
     setFinalData(newFinalData);
   };
 
