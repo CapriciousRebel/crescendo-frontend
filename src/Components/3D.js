@@ -28,8 +28,8 @@ const Template3D = () => {
         chooseTemplate(finalData)
             .then((response) => {
                 console.log(response)
-                history.push("output");
             });
+        history.push("output");
     };
 
     const handleChangeCallBack = (type, stem) => {

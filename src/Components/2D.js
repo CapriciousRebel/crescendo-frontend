@@ -25,8 +25,8 @@ const Template2D = () => {
         chooseTemplate(finalData)
             .then((response) => {
                 console.log(response)
-                history.replace("/output")
             });
+        history.replace("/output")
     };
 
     const handleChangeCallBack = (type, stem) => {
