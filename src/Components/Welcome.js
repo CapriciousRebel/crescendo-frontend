@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Container, Spinner } from "react-bootstrap";
+import { Container, Form, Spinner } from "react-bootstrap";
 import { Card, Button } from "@material-ui/core";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
@@ -15,7 +15,13 @@ const Welcome = () => {
 
   const selectFile = (event) => {
     setSelectedFiles(event.target.files);
+    console.log(event.target.files[0].name)
   };
+
+  const redirectToStems = () => {
+    history.push("stems");
+  }
+
 
   const upload = () => {
     let currentFile = selectedFiles[0];
@@ -26,10 +32,9 @@ const Welcome = () => {
       setProgress(Math.round((100 * event.loaded) / event.total));
     })
       .then((response) => {
-        setMessage(response.data.message);
         localStorage.setItem("client_id", response.data.client_id);
         localStorage.setItem("output_folder", response.data.output_folder);
-        history.push("stems");
+        redirectToStems();
       })
       .catch(() => {
         setProgress(0);
@@ -40,62 +45,72 @@ const Welcome = () => {
     setSelectedFiles(undefined);
   };
   return (
-    <>
-      <Container fluid className=" mx-0 w-100">
-        <h1 className="mt-5">Welcome to Crescendo!</h1>
-        <Card className="upload-card mt-5 px-5 mx-auto">
-          <h3 className="mt-5">Upload an audio file to proceed</h3>
+    <Container className='w-100 h-100 d-flex align-items-center justify-content-center'>
+      <Card className="upload-card m-0 px-5" style={{ backgroundColor: "#214D52" }}>
 
-          {currentFile && (
-            <div className="progress mt-6">
-              <div
-                className="progress-bar progress-bar-info progress-bar-striped"
-                role="progressbar"
-                aria-valuenow={progress}
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: progress + "%" }}
-              >
-                {progress}%
+        <h1 className="mt-5 mx-0 p-0 text-left" style={{ color: "#0CB8CF" }}>Upload an audio file to proceed</h1>
+        <h5 className="mt-3 mx-0 p-0 text-left" style={{ color: "white" }}>Select and upload the song you want to groove to using our visualizer </h5>
+
+        {currentFile && (
+          <div className="progress mt-5 mb-0 mx-0 p-0">
+            <div
+              className="progress-bar progress-bar-info progress-bar-striped"
+              role="progressbar"
+              aria-valuenow={progress}
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style={{ width: progress + "%" }}
+            >
+              {progress}%
               </div>
-            </div>
-          )}
-
-          <label className="btn btn-default">
-            <input type="file" onChange={selectFile} />
-          </label>
-
-          <Button
-            variant="contained"
-            color="default"
-            disabled={!selectedFiles}
-            onClick={upload}
-            className="w-7rem"
-            startIcon={<CloudUploadIcon />}
-          >
-            Upload
-          </Button>
-          <div className="alert alert-light" role="alert">
-            {message}
           </div>
+        )}
 
-          {progress === 100 ? (
-            <Button variant="primary" disabled>
-              <Spinner
-                as="span"
-                animation="grow"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-              />
+        <Form className="mx-auto px-0 mt-5 upload-form ">
+          <Form.File
+            id="custom-file-translate-scss"
+            label={selectedFiles ? selectedFiles[0].name : "Choose audio file to upload"}
+            lang="en"
+            onChange={selectFile}
+            custom
+          />
+        </Form>
+
+        {false && (<label className="btn btn-default">
+          <input type="file" onChange={selectFile} />
+        </label>)}
+
+        <Button
+          variant="contained"
+          color="default"
+          disabled={!selectedFiles}
+          onClick={upload}
+          className="w-7rem mt-4"
+          startIcon={<CloudUploadIcon />}
+        >
+          Upload
+          </Button>
+        <div className="alert alert-light" role="alert" style={{ backgroundColor: "#214D52", border: "none" }}>
+          {message}
+        </div>
+
+        {progress === 100 ? (
+          <Button variant="primary" disabled>
+            <Spinner
+              as="span"
+              animation="grow"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
               Processing File ...
-            </Button>
-          ) : (
+          </Button>
+        ) : (
             <> </>
           )}
-        </Card>
-      </Container>
-    </>
+      </Card>
+
+    </Container>
   );
 };
 

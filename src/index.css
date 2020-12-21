@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 * {
   text-align: center;
 }
@@ -24,16 +29,16 @@ code {
   margin-top: 10rem;
 }
 
-.w-100 {
-  width: 100%;
+.max-width-100 {
+  max-width: 100vw;
+}
+
+.max-height-100 {
+  height: 100vh;
 }
 
 .width-50 {
   width: 30% !important;
-}
-
-.h-100 {
-  height: 100%;
 }
 
 .w-7rem {
@@ -65,4 +70,20 @@ code {
 
 .decoration-none:hover {
   text-decoration: none;
+}
+
+.bgcolor {
+  background-color: #022226;
+}
+
+.h-10 {
+  height: 10vh;
+}
+
+.h-90 {
+  height: 90vh;
+}
+
+.upload-form {
+  width: 30rem;
 }

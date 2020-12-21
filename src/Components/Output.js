@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Container, Spinner } from "react-bootstrap";
-import { Card, Button } from "@material-ui/core";
+import { Spinner } from "react-bootstrap";
+import { Button } from "@material-ui/core";
 import { getOutputFile } from "../Apis/Output.js";
 
 const Output = () => {

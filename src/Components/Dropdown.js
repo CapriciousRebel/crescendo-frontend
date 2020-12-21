@@ -53,8 +53,8 @@ export default function ControlledOpenSelect(props) {
           <MenuItem value="bass">Bass</MenuItem>
           <MenuItem value="vocals">Vocals</MenuItem>
           <MenuItem value="piano">Piano</MenuItem>
-          <MenuItem value="melody">Melody</MenuItem>
           <MenuItem value="drums">Drums</MenuItem>
+          <MenuItem value="other">Melody</MenuItem>
         </Select>
       </FormControl>
     </div>

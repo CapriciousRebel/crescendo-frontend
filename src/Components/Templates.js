@@ -99,7 +99,7 @@ const Templates = () => {
                                             />
                                             <CardContent>
                                                 <Typography gutterBottom variant="h5" component="h2">
-                                                    Water
+                                                    Bloom
                         </Typography>
                                             </CardContent>
                                         </CardActionArea>
@@ -121,7 +121,7 @@ const Templates = () => {
                                             />
                                             <CardContent>
                                                 <Typography gutterBottom variant="h5" component="h2">
-                                                    Particles
+                                                    Vibrate
                         </Typography>
                                             </CardContent>
                                         </CardActionArea>
