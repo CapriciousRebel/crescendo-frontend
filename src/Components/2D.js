@@ -4,6 +4,9 @@ import { Card, Button } from "@material-ui/core";
 import CardActions from "@material-ui/core/CardActions";
 import CardMedia from "@material-ui/core/CardMedia";
 import { useHistory } from "react-router-dom";
+import scale2d from "../images/scale2d.gif"
+import bloom2d from "../images/bloom2d.gif"
+import vibrate2d from "../images/vibrate2d.gif"
 
 import ControlledOpenSelect from "./Dropdown";
 import { chooseTemplate } from "../Apis/Templates.js";
@@ -58,7 +61,7 @@ const Template2D = () => {
                                     <Card className="template-card mx-auto">
                                         <CardMedia
                                             className="card-image"
-                                            image="http://localhost:6900/images/template.jpeg"
+                                            image={scale2d}
                                             title="Contemplative Reptile"
                                         /><h3>Scale</h3>
                                         <CardActions>
@@ -74,7 +77,7 @@ const Template2D = () => {
 
                                         <CardMedia
                                             className="card-image"
-                                            image="http://localhost:6900/images/template2.jpeg"
+                                            image={bloom2d}
                                             title="Contemplative Reptile"
                                         /><h3>Bloom</h3>
 
@@ -91,7 +94,7 @@ const Template2D = () => {
 
                                         <CardMedia
                                             className="card-image"
-                                            image="http://localhost:6900/images/template3.jpeg"
+                                            image={vibrate2d}
                                             title="Contemplative Reptile"
                                         />
                                         <h3> Vibrate</h3>
