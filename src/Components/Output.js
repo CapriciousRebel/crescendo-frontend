@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@material-ui/core";
 import { Row, Col } from "react-bootstrap"
-
+import music from "../images/music.png"
 import { getOutputFile } from "../Apis/Output.js";
 
 
@@ -56,7 +56,7 @@ const Output = () => {
                 </Col>
                 <Col xl={6} className="my-auto mx-0 p-0">
                     <img
-                        src="http://localhost:6900/images/music 2.png"
+                        src={music}
                         alt="Loading . . ."
                         className="m-0 p-0"
                         style={{ width: "800px" }} />

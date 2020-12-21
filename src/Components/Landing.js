@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap"
 import { Button } from "@material-ui/core"
 import { useHistory } from "react-router-dom";
+import music from "../images/music.png"
 
 const Landing = () => {
   const history = useHistory();
@@ -21,7 +22,7 @@ const Landing = () => {
       </Col>
       <Col xl={6} className="my-auto mx-0 p-0">
         <img
-          src="http://localhost:6900/images/music 2.png"
+          src={music}
           alt="Loading . . ."
           className="m-0 p-0"
           style={{ width: "800px" }} />

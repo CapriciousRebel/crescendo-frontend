@@ -7,6 +7,9 @@ import { useHistory } from "react-router-dom";
 
 import ControlledOpenSelect from "./Dropdown";
 import { chooseTemplate } from "../Apis/Templates.js";
+import water3d from "../images/water3d.gif"
+import scale3d from "../images/scale3d.gif"
+import particle3d from "../images/particles3d.gif"
 
 
 const Template3D = () => {
@@ -57,7 +60,7 @@ const Template3D = () => {
                                     <Card className="template-card mx-auto">
                                         <CardMedia
                                             className="card-image"
-                                            image="http://localhost:6900/images/template.jpeg"
+                                            image={scale3d}
                                             title="Contemplative Reptile"
                                         /><h3>Scale</h3>
                                         <CardActions>
@@ -73,7 +76,7 @@ const Template3D = () => {
 
                                         <CardMedia
                                             className="card-image"
-                                            image="http://localhost:6900/images/template2.jpeg"
+                                            image={particle3d}
                                             title="Contemplative Reptile"
                                         /><h3>Particle effect</h3>
 
@@ -90,7 +93,7 @@ const Template3D = () => {
 
                                         <CardMedia
                                             className="card-image"
-                                            image="http://localhost:6900/images/template3.jpeg"
+                                            image={water3d}
                                             title="Contemplative Reptile"
                                         />
                                         <h3>Wave </h3>
