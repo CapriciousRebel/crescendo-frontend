@@ -29,27 +29,28 @@ const Stems = () => {
         <Row>
           <Col xl={2}></Col>
           <Col xl={8} className="mt-5">
-            <h1>Here are your seperated Stems!</h1>
+            <h1 className="text-white">Here are your seperated Stems!</h1>
           </Col>
-          <Col xl={2} className="mt-5  pt-2">
+          <Col xl={2} className="mt-5 pt-2">
             <Link to="/templates" className="decoration-none">
               <Row>
-                <h4>Choose a template</h4>
-                <ArrowForwardIcon className="pt-1" />
+                <h4 style={{ color: "#0CB8CF" }}>Choose a template</h4>
+                <ArrowForwardIcon className="pt-1" style={{ color: "#0CB8CF" }} />
               </Row>
             </Link>
           </Col>
         </Row>
-        <Row>
+        <Row className="px-5">
           {stems.map((stem, index) => (
             <Card
               className="stem-card mt-5 mx-auto d-flex flex-column align-items-center justify-content-around"
               key={index}
+              style={{ backgroundColor: "#214D52" }}
             >
-              <h5>{stem.name}</h5>
+              <h3 className="ml-3 pl-3 w-100 text-left text-white">{stem.name}</h3>
               <ReactPlayer
                 url={stem.url}
-                width="20rem"
+                width="24rem"
                 height="3rem"
                 playing={false}
                 controls={true}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Container, Form, Spinner } from "react-bootstrap";
+import { Row, Form, Spinner } from "react-bootstrap";
 import { Card, Button } from "@material-ui/core";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
@@ -45,14 +45,14 @@ const Welcome = () => {
     setSelectedFiles(undefined);
   };
   return (
-    <Container className='w-100 h-100 d-flex align-items-center justify-content-center'>
-      <Card className="upload-card m-0 px-5" style={{ backgroundColor: "#214D52" }}>
+    <Row className='w-100 h-100 p-0 m-0 d-flex align-items-center justify-content-center '>
+      <Card className="upload-card m-0 py-0 px-5" style={{ backgroundColor: "#214D52" }}>
 
         <h1 className="mt-5 mx-0 p-0 text-left" style={{ color: "#0CB8CF" }}>Upload an audio file to proceed</h1>
-        <h5 className="mt-3 mx-0 p-0 text-left" style={{ color: "white" }}>Select and upload the song you want to groove to using our visualizer </h5>
+        <h4 className="mt-3 mx-0 p-0 text-left" style={{ color: "white" }}>Select and upload the song you want to groove to using our visualizer </h4>
 
         {currentFile && (
-          <div className="progress mt-5 mb-0 mx-0 p-0">
+          <div className="progress m-0 p-0">
             <div
               className="progress-bar progress-bar-info progress-bar-striped"
               role="progressbar"
@@ -66,7 +66,7 @@ const Welcome = () => {
           </div>
         )}
 
-        <Form className="mx-auto px-0 mt-5 upload-form ">
+        <Form className="mx-0 px-0 mt-5 upload-form ">
           <Form.File
             id="custom-file-translate-scss"
             label={selectedFiles ? selectedFiles[0].name : "Choose audio file to upload"}
@@ -79,17 +79,20 @@ const Welcome = () => {
         {false && (<label className="btn btn-default">
           <input type="file" onChange={selectFile} />
         </label>)}
+        <div className="d-flex flex-column justify-content-end mt-4">
+          <Button
+            variant="contained"
+            color="default"
+            disabled={!selectedFiles}
+            onClick={upload}
+            size="large"
+            className='w-7rem mt-4'
+            startIcon={<CloudUploadIcon />}
+          >
+            Upload
+              </Button>
 
-        <Button
-          variant="contained"
-          color="default"
-          disabled={!selectedFiles}
-          onClick={upload}
-          className="w-7rem mt-4"
-          startIcon={<CloudUploadIcon />}
-        >
-          Upload
-          </Button>
+        </div>
         <div className="alert alert-light" role="alert" style={{ backgroundColor: "#214D52", border: "none" }}>
           {message}
         </div>
@@ -109,8 +112,7 @@ const Welcome = () => {
             <> </>
           )}
       </Card>
-
-    </Container>
+    </Row >
   );
 };
 

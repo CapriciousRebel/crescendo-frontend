@@ -51,12 +51,12 @@ body {
 
 .upload-card {
   width: 50rem;
-  height: 23rem;
+  height: 25rem;
 }
 
 .stem-card {
-  width: 23rem;
-  height: 20rem;
+  width: 25rem;
+  height: 15rem;
 }
 
 .template-card {
@@ -85,5 +85,22 @@ body {
 }
 
 .upload-form {
-  width: 30rem;
+  width: 44rem;
+}
+
+.upload-button-enabled {
+  background-color: red;
+  color: red;
+}
+.upload-button-disabled {
+  background-color: yellow;
+  color: red;
+}
+
+.mt-69 {
+  margin-top: 12rem;
+}
+
+.card-image {
+  height: 10rem;
 }
