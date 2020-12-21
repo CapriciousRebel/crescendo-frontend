@@ -79,38 +79,40 @@ const Welcome = () => {
         {false && (<label className="btn btn-default">
           <input type="file" onChange={selectFile} />
         </label>)}
-        <div className="d-flex flex-column justify-content-end mt-4">
+        <div className="d-flex flex-column justify-content-end mt-4 mb-0 p-0">
           <Button
             variant="contained"
             color="default"
             disabled={!selectedFiles}
             onClick={upload}
             size="large"
-            className='w-7rem mt-4'
+            className='w-7rem mt-4 mb-0'
             startIcon={<CloudUploadIcon />}
           >
             Upload
-              </Button>
-
-        </div>
-        <div className="alert alert-light" role="alert" style={{ backgroundColor: "#214D52", border: "none" }}>
-          {message}
-        </div>
-
-        {progress === 100 ? (
-          <Button variant="primary" disabled>
-            <Spinner
-              as="span"
-              animation="grow"
-              size="sm"
-              role="status"
-              aria-hidden="true"
-            />
-              Processing File ...
           </Button>
-        ) : (
-            <> </>
-          )}
+        </div>
+        {false && (<div className="alert alert-light" role="alert" style={{ backgroundColor: "#214D52", border: "none" }}>
+          {message}
+        </div>)}
+
+        <div className='mt-0 p-0'>
+          {progress === 100 ? (
+            <Button variant="primary" disabled>
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+                className="text-white"
+              />
+              <div className="text-white">Processing File ...</div>
+            </Button>
+          ) : (
+              <> </>
+            )}
+        </div>
       </Card>
     </Row >
   );

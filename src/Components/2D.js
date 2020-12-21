@@ -48,9 +48,10 @@ const Template2D = () => {
                                 <iframe
                                     title="sample video 1"
                                     className="embed-responsive-item"
-                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+                                    src="https://www.youtube.com/embed/ByL0A_I_sgE"
                                     allowFullScreen
                                 ></iframe>
+
                             </div>
                             <Row className="mx-0 mt-3">
                                 <Col xl={4}>

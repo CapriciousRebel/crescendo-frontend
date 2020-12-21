@@ -1,4 +1,5 @@
 import { Row, Navbar } from "react-bootstrap";
+import crescendo_logo from "../images/crescendo-logo.png"
 
 const MyNavbar = () => {
     return (
@@ -7,12 +8,11 @@ const MyNavbar = () => {
                 <Row>
                     <img
                         alt=""
-                        src="http://localhost:6900/images/template2.jpeg"
-                        width="30"
-                        height="30"
-                        className="d-inline-block align-top ml-2"
+                        src={crescendo_logo}
+                        height="40"
+                        className="d-inline-block align-top ml-5"
                     />
-                    <h3 className="pl-5 m-0 pr-0 py-0">Crescendo</h3>
+                    <h3 className="pl-3 pt-1 m-0 pr-0 py-0">Crescendo</h3>
                 </Row>
             </Navbar.Brand>
         </Navbar>

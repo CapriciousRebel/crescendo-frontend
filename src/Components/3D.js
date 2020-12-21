@@ -51,7 +51,7 @@ const Template3D = () => {
                                 <iframe
                                     title="sample video 1"
                                     className="embed-responsive-item"
-                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+                                    src="https://player.vimeo.com/video/493341739"
                                     allowFullScreen
                                 ></iframe>
                             </div>
