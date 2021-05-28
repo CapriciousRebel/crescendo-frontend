@@ -23,6 +23,7 @@ module.exports = {
       { args: "none", argsIgnorePattern: "req|res|next|val" },
     ],
     "prettier/prettier": ["error"],
+    "react/prop-types": "off",
   },
   settings: {
     react: {

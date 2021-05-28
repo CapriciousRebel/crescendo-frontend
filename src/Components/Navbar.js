@@ -1,3 +1,4 @@
+import React from "react";
 import { Row, Navbar } from "react-bootstrap";
 import crescendo_logo from "../images/crescendo-logo.png";
 
