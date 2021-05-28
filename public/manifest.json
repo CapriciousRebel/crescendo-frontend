@@ -1,6 +1,6 @@
 {
   "short_name": "Crescendo",
-  "name": "Crescendo",
+  "name": "Crescendo - An automated 3D music visualizer.",
   "icons": [
     {
       "src": "crescendo-logo.ico",
