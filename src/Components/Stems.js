@@ -35,7 +35,10 @@ const Stems = () => {
             <Link to="/templates" className="decoration-none">
               <Row>
                 <h4 style={{ color: "#0CB8CF" }}>Choose a template</h4>
-                <ArrowForwardIcon className="pt-1" style={{ color: "#0CB8CF" }} />
+                <ArrowForwardIcon
+                  className="pt-1"
+                  style={{ color: "#0CB8CF" }}
+                />
               </Row>
             </Link>
           </Col>
@@ -47,7 +50,9 @@ const Stems = () => {
               key={index}
               style={{ backgroundColor: "#214D52" }}
             >
-              <h3 className="ml-3 pl-3 w-100 text-left text-white">{stem.name}</h3>
+              <h3 className="ml-3 pl-3 w-100 text-left text-white">
+                {stem.name}
+              </h3>
               <ReactPlayer
                 url={stem.url}
                 width="24rem"

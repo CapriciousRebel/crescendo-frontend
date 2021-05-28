@@ -15,13 +15,12 @@ const Welcome = () => {
 
   const selectFile = (event) => {
     setSelectedFiles(event.target.files);
-    console.log(event.target.files[0].name)
+    console.log(event.target.files[0].name);
   };
 
   const redirectToStems = () => {
     history.push("stems");
-  }
-
+  };
 
   const upload = () => {
     let currentFile = selectedFiles[0];
@@ -45,11 +44,17 @@ const Welcome = () => {
     setSelectedFiles(undefined);
   };
   return (
-    <Row className='w-100 h-100 p-0 m-0 d-flex align-items-center justify-content-center '>
-      <Card className="upload-card m-0 py-0 px-5" style={{ backgroundColor: "#214D52" }}>
-
-        <h1 className="mt-5 mx-0 p-0 text-left" style={{ color: "#0CB8CF" }}>Upload an audio file to proceed</h1>
-        <h4 className="mt-3 mx-0 p-0 text-left" style={{ color: "white" }}>Select and upload the song you want to groove to using our visualizer </h4>
+    <Row className="w-100 h-100 p-0 m-0 d-flex align-items-center justify-content-center ">
+      <Card
+        className="upload-card m-0 py-0 px-5"
+        style={{ backgroundColor: "#214D52" }}
+      >
+        <h1 className="mt-5 mx-0 p-0 text-left" style={{ color: "#0CB8CF" }}>
+          Upload an audio file to proceed
+        </h1>
+        <h4 className="mt-3 mx-0 p-0 text-left" style={{ color: "white" }}>
+          Select and upload the song you want to groove to using our visualizer{" "}
+        </h4>
 
         {currentFile && (
           <div className="progress m-0 p-0">
@@ -62,23 +67,29 @@ const Welcome = () => {
               style={{ width: progress + "%" }}
             >
               {progress}%
-              </div>
+            </div>
           </div>
         )}
 
         <Form className="mx-0 px-0 mt-5 upload-form ">
           <Form.File
             id="custom-file-translate-scss"
-            label={selectedFiles ? selectedFiles[0].name : "Choose audio file to upload"}
+            label={
+              selectedFiles
+                ? selectedFiles[0].name
+                : "Choose audio file to upload"
+            }
             lang="en"
             onChange={selectFile}
             custom
           />
         </Form>
 
-        {false && (<label className="btn btn-default">
-          <input type="file" onChange={selectFile} />
-        </label>)}
+        {false && (
+          <label className="btn btn-default">
+            <input type="file" onChange={selectFile} />
+          </label>
+        )}
         <div className="d-flex flex-column justify-content-end mt-4 mb-0 p-0">
           <Button
             variant="contained"
@@ -86,17 +97,23 @@ const Welcome = () => {
             disabled={!selectedFiles}
             onClick={upload}
             size="large"
-            className='w-7rem mt-4 mb-0'
+            className="w-7rem mt-4 mb-0"
             startIcon={<CloudUploadIcon />}
           >
             Upload
           </Button>
         </div>
-        {false && (<div className="alert alert-light" role="alert" style={{ backgroundColor: "#214D52", border: "none" }}>
-          {message}
-        </div>)}
+        {false && (
+          <div
+            className="alert alert-light"
+            role="alert"
+            style={{ backgroundColor: "#214D52", border: "none" }}
+          >
+            {message}
+          </div>
+        )}
 
-        <div className='mt-0 p-0'>
+        <div className="mt-0 p-0">
           {progress === 100 ? (
             <Button variant="primary" disabled>
               <Spinner
@@ -110,11 +127,11 @@ const Welcome = () => {
               <div className="text-white">Processing File ...</div>
             </Button>
           ) : (
-              <> </>
-            )}
+            <> </>
+          )}
         </div>
       </Card>
-    </Row >
+    </Row>
   );
 };
 

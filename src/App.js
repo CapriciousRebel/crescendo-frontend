@@ -6,7 +6,7 @@ import Templates from "./Components/Templates.js";
 import Template2D from "./Components/2D.js";
 import Template3D from "./Components/3D.js";
 import Stems from "./Components/Stems.js";
-import MyNavbar from "./Components/Navbar.js"
+import MyNavbar from "./Components/Navbar.js";
 import Output from "./Components/Output.js";
 import Landing from "./Components/Landing.js";
 
