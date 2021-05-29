@@ -22,7 +22,7 @@ module.exports = {
       "warn",
       { args: "none", argsIgnorePattern: "req|res|next|val" },
     ],
-    "prettier/prettier": ["error"],
+    "prettier/prettier": "warn",
     "react/prop-types": "off",
   },
   settings: {

@@ -10,13 +10,11 @@ import MyNavbar from "./Components/Navbar.js";
 import Output from "./Components/Output.js";
 import Landing from "./Components/Landing.js";
 
-function App() {
+export default function App() {
   return (
     <div className="bgcolor w-100 max-height-100">
       <Router>
-        <div className="h-10">
-          <MyNavbar />
-        </div>
+        <MyNavbar />
         <div className="h-90">
           <Switch>
             <Route exact path="/" component={Landing} />
@@ -32,5 +30,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
