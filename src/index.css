@@ -12,7 +12,92 @@ body {
   height: 100%;
 }
 
+.upload-card {
+  width: 50rem;
+  height: 25rem;
+  margin: 0;
+  padding: 0 5rem;
+}
+
+.upload-header {
+  margin: 2rem 0 0 0;
+  padding: 0;
+  color: #0cb8cf;
+  text-align: left;
+}
+.upload-text {
+  margin: 3rem 0 0 0;
+  padding: 0;
+  color: white;
+  text-align: left;
+}
+
+.upload-form {
+  width: 44rem;
+  margin: 5rem 0 0 0;
+}
+@media (max-width: 575.98px) {
+  .upload-card {
+    height: 65vh;
+    width: 30rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .upload-header {
+    margin: 2rem 0 0 0;
+    text-align: center;
+  }
+  .upload-text {
+    margin: 2rem 0 0 0;
+    text-align: center;
+  }
+  .upload-form {
+    width: 60vw;
+    margin: 5rem 0 0;
+    align-self: center;
+  }
+
+  .upload-button {
+    align-self: center;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .upload-card {
+    height: 65vh;
+    width: 30rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .upload-header {
+    margin: 2rem 0 0 0;
+    text-align: center;
+  }
+  .upload-text {
+    margin: 2rem 0 0 0;
+    text-align: center;
+  }
+  .upload-form {
+    width: 25rem;
+    margin: 5rem 0 0;
+    align-self: center;
+  }
+  .upload-button {
+    align-self: center;
+  }
+}
 @media (max-width: 1200px) {
+  .navbar-title-col {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .navbar-title {
+    display: inline-block;
+  }
   .intro-heading {
     margin: 0;
     padding: 0;
@@ -58,17 +143,6 @@ body {
     padding: 0 1rem 0 5rem;
   }
 }
-/* Navbar */
-@media (min-width: 1200px) {
-  .navbar-title-col {
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  .navbar-title {
-    display: inline-block;
-  }
-}
 
 .mt-6 {
   margin-top: 3rem;
@@ -102,11 +176,6 @@ body {
   width: 20rem;
 }
 
-.upload-card {
-  width: 50rem;
-  height: 25rem;
-}
-
 .stem-card {
   width: 25rem;
   height: 15rem;
@@ -117,10 +186,7 @@ body {
   max-height: 72rem;
 }
 
-.decoration-none {
-  text-decoration: none;
-}
-
+.decoration-none,
 .decoration-none:hover {
   text-decoration: none;
 }
@@ -135,10 +201,6 @@ body {
 
 .h-90 {
   height: 90vh;
-}
-
-.upload-form {
-  width: 44rem;
 }
 
 .upload-button-enabled {
