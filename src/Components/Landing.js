@@ -1,25 +1,20 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import { Button } from "@material-ui/core";
 import music from "../images/music.png";
 
-const Landing = () => {
+export default function Landing() {
   const history = useHistory();
   return (
-    <Row className="w-100 h-100">
-      <Col xl={6} className="my-auto pl-5">
-        <h1
-          className="mt-5 mb-0 mx-0 p-0 text-left"
-          style={{ color: "#0CB8CF", fontSize: "4rem" }}
-        >
-          Reimagining Music Visualizers!
-        </h1>
-        <h3 className="text-left mt-3 mb-4" style={{ color: "white" }}>
+    <Row className="h-100">
+      <Col xl={6} className="my-auto p-0">
+        <h1 className="intro-heading">Reimagining Music Visualizers!</h1>
+        <h3 className="intro-text">
           Fully automated music visualizer to trigger your visual senses to
           musical components using engaging animation in VR
         </h3>
-        <div className="d-flex">
+        <div className="d-flex create-button">
           <Button
             variant="contained"
             size="large"
@@ -32,16 +27,9 @@ const Landing = () => {
           </Button>
         </div>
       </Col>
-      <Col xl={6} className="my-auto mx-0 p-0">
-        <img
-          src={music}
-          alt="Loading . . ."
-          className="m-0 p-0"
-          style={{ width: "800px" }}
-        />
+      <Col xl={6} className="my-auto mx-0">
+        <img src={music} alt="" className="music-image" />
       </Col>
     </Row>
   );
-};
-
-export default Landing;
+}

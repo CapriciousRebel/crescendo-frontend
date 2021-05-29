@@ -1,6 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from "react-bootstrap";
 import Welcome from "./Components/Welcome.js";
 import Templates from "./Components/Templates.js";
 import Template2D from "./Components/2D.js";
@@ -15,7 +16,7 @@ export default function App() {
     <div className="bgcolor w-100 max-height-100">
       <Router>
         <MyNavbar />
-        <div className="h-90">
+        <Container className="h-90" fluid>
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/create" component={Welcome} />
@@ -25,7 +26,7 @@ export default function App() {
             <Route exact path="/templates/3" component={Template3D} />
             <Route exact path="/output" component={Output} />
           </Switch>
-        </div>
+        </Container>
       </Router>
     </div>
   );
