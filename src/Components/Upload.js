@@ -6,7 +6,7 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
 import { uploadFile } from "../Apis/FileUpload";
 
-const Welcome = () => {
+export default function Upload() {
   const [selectedFiles, setSelectedFiles] = useState(undefined);
   const [currentFile, setCurrentFile] = useState(undefined);
   const [progress, setProgress] = useState(0);
@@ -124,6 +124,4 @@ const Welcome = () => {
       </Card>
     </Row>
   );
-};
-
-export default Welcome;
+}
