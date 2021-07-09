@@ -1,5 +1,11 @@
 import axios from "./AxiosInstance";
 
+/**
+ * Upload a file
+ * @param  {File} file The file to be uploaded
+ * @param  {ProgressEvent} onUploadProgress Progress of file being uploaded
+ * @return {Promise} Response
+ */
 export const uploadFile = (file, onUploadProgress) => {
   let formData = new FormData();
   formData.append("file", file);
@@ -10,10 +16,4 @@ export const uploadFile = (file, onUploadProgress) => {
     },
     onUploadProgress,
   });
-};
-
-export const getFiles = (client_id, output_folder) => {
-  return axios.get(
-    "/files/?client_id=" + client_id + "&output_folder=" + output_folder
-  );
 };

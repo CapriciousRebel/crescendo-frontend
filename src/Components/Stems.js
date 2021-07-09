@@ -5,13 +5,13 @@ import { Card } from "@material-ui/core";
 import ReactPlayer from "react-player";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
-import { getFiles } from "../Apis/FileUpload";
+import { getStems } from "../Apis/Stems";
 
 const Stems = () => {
   const [stems, setStems] = useState([]);
 
   const startStream = () => {
-    getFiles(
+    getStems(
       localStorage.getItem("client_id"),
       localStorage.getItem("output_folder")
     ).then((response) => {

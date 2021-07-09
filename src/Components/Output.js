@@ -1,34 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "@material-ui/core";
-import { Row, Col } from "react-bootstrap";
+import Button from '@material-ui/core/Button';
+import { Row, Col, Form, Spinner } from "react-bootstrap";
 import music from "../images/music.png";
-import { getOutputFile } from "../Apis/Output.js";
+import { getOutputFile } from "../Apis/Output";
+import { openInNewTab } from "../Utils/utils";
 
 const Output = () => {
-  const [outputFile, setOutputFile] = useState("");
+  const [outputURL, setOutputURL] = useState(""); // url to download the final output video
 
-  // make  request every 10s
   const fetchFile = () => {
-    getOutputFile(
-      localStorage.getItem("client_id"),
-      localStorage.getItem("output_folder")
-    ).then((response) => {
-      setOutputFile(response.data.url);
-    });
-
+    // make  request every 10s to update the status of the output file
     setInterval(() => {
       getOutputFile(
         localStorage.getItem("client_id"),
         localStorage.getItem("output_folder")
       ).then((response) => {
-        setOutputFile(response.data.url);
+        setOutputURL(response.data.url);
       });
     }, 10000);
   };
 
   useEffect(() => {
     fetchFile();
-  });
+  }, []);
 
   return (
     <>
@@ -41,21 +35,30 @@ const Output = () => {
             Thank you for using Crescendo!
           </h1>
           <h3 className="text-left mt-3 mb-4" style={{ color: "white" }}>
-            Your video is being processed, munch on a few snacks while we are
-            getting it ready for you.
+            While your video is being processed, munch on a few snacks and get sit tight!
           </h3>
           <div className="d-flex">
-            {outputFile ? (
+            {outputURL ? (
               <Button
-                type="button"
-                class="btn btn-primary"
-                size="large"
-                onClick={() => (window.location.href = outputFile)}
-              >
+                variant="contained"
+                color="primary"
+                onClick={() => {
+                  openInNewTab(outputURL)
+                }}>
                 Final Video!
               </Button>
             ) : (
-              <></>
+              <Button variant="contained" disabled>
+                <Spinner
+                  as="span"
+                  animation="grow"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                  className="text-white mr-3 p-0"
+                />
+                <div className="text-white m-0 p-0">Processing video</div>
+              </Button>
             )}
           </div>
         </Col>
@@ -63,7 +66,7 @@ const Output = () => {
           <img
             src={music}
             alt="Loading . . ."
-            className="m-0 p-0"
+            className="music-image"
             style={{ width: "800px" }}
           />
         </Col>

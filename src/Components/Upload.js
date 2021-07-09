@@ -4,55 +4,54 @@ import { Row, Form, Spinner } from "react-bootstrap";
 import { Card, Button } from "@material-ui/core";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
-import { uploadFile } from "../Apis/FileUpload";
+import { uploadFile } from "../Apis/Files";
 
 export default function Upload() {
-  const [selectedFiles, setSelectedFiles] = useState(undefined);
-  const [currentFile, setCurrentFile] = useState(undefined);
-  const [progress, setProgress] = useState(0);
-  const [message, setMessage] = useState("");
+  const [uploading, setUploading] = useState(false); // true if the selected file uploading right now
+  const [selectedFile, setSelectedFile] = useState(undefined); // the file selected by the user to be uploaded
+  const [progress, setProgress] = useState(0); // progress of the file uploading 
   const history = useHistory();
 
-  const selectFile = (event) => {
-    setSelectedFiles(event.target.files);
-    console.log(event.target.files[0].name);
-  };
-
-  const redirectToStems = () => {
-    history.push("stems");
-  };
-
   const upload = () => {
-    let currentFile = selectedFiles[0];
     setProgress(0);
-    setCurrentFile(currentFile);
+    setUploading(true);
 
-    uploadFile(currentFile, (event) => {
+    uploadFile(selectedFile, (event) => {
       setProgress(Math.round((100 * event.loaded) / event.total));
-    })
-      .then((response) => {
-        localStorage.setItem("client_id", response.data.client_id);
-        localStorage.setItem("output_folder", response.data.output_folder);
-        redirectToStems();
-      })
-      .catch(() => {
-        setProgress(0);
-        setMessage("Could not upload the file!");
-        setCurrentFile(undefined);
-      });
 
-    setSelectedFiles(undefined);
+    }).then((response) => {
+      localStorage.setItem("client_id", response.data.client_id);
+      localStorage.setItem("output_folder", response.data.output_folder);
+      history.push("stems");
+
+    }).catch(() => {
+      alert("Failed to upload the file! Please try again.")
+      setProgress(0);
+      setSelectedFile(undefined);
+
+    });
   };
+
+
   return (
-    <Row className="w-100 h-100 p-0 m-0 d-flex align-items-center justify-content-center ">
+    <Row className="w-100 h-100 p-0 m-0 d-flex align-items-center justify-content-center">
       <Card className="upload-card " style={{ backgroundColor: "#214D52" }}>
         <h1 className="upload-header">Upload an audio file to proceed</h1>
-        <h4 className="upload-text">
-          Select and upload the song you want to groove to using our visualizer
-        </h4>
+        <Form className="upload-form">
+          <Form.File
+            id="custom-file-translate-scss"
+            label={selectedFile ? selectedFile.name : "Choose an audio file to upload!"}
+            lang="en"
+            accept="audio/*"
+            onChange={(event) => {
+              setSelectedFile(event.target.files[0]);
+            }}
+            custom
+          />
+        </Form>
 
-        {currentFile && (
-          <div className="progress m-0 p-0">
+        {selectedFile && uploading && (
+          <div className="progress mt-5 mb-5 p-0">
             <div
               className="progress-bar progress-bar-info progress-bar-striped"
               role="progressbar"
@@ -66,41 +65,19 @@ export default function Upload() {
           </div>
         )}
 
-        <Form className="upload-form">
-          <Form.File
-            id="custom-file-translate-scss"
-            label={selectedFiles ? selectedFiles[0].name : "Upload audio"}
-            lang="en"
-            onChange={selectFile}
-            custom
-          />
-        </Form>
-
-        {false && (
-          <label className="btn btn-default">
-            <input type="file" onChange={selectFile} />
-          </label>
-        )}
-        <div className="upload-button d-flex flex-column justify-content-end mt-4 mb-0 p-0">
-          <Button
-            variant="contained"
-            color="default"
-            disabled={!selectedFiles}
-            onClick={upload}
-            size="large"
-            className="w-7rem mt-4 mb-0"
-            startIcon={<CloudUploadIcon />}
-          >
-            Upload
-          </Button>
-        </div>
-        {false && (
-          <div
-            className="alert alert-light"
-            role="alert"
-            style={{ backgroundColor: "#214D52", border: "none" }}
-          >
-            {message}
+        {!uploading && (
+          <div className="upload-button d-flex flex-column justify-content-end mt-4 mb-0 p-0">
+            <Button
+              variant="contained"
+              color="default"
+              disabled={!selectedFile}
+              onClick={upload}
+              size="large"
+              className="w-7rem mt-4 mb-0"
+              startIcon={<CloudUploadIcon />}
+            >
+              Upload
+            </Button>
           </div>
         )}
 
@@ -113,9 +90,9 @@ export default function Upload() {
                 size="sm"
                 role="status"
                 aria-hidden="true"
-                className="text-white"
+                className="text-white mr-3 p-0"
               />
-              <div className="text-white">Processing File ...</div>
+              <div className="text-white m-0 p-0">Processing File</div>
             </Button>
           ) : (
             <> </>
